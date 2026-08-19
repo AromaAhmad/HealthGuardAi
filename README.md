@@ -140,12 +140,16 @@ cd HealthGuardAI
 
 ## 🏠 Main Application
 
-| <img width="720" height="1612" alt="Home screen" src="https://github.com/user-attachments/assets/61b674a9-371f-4654-8a0d-41cdefa43d49" />
- |  <img width="720" height="1612" alt="upload document" src="https://github.com/user-attachments/assets/71a32110-8ac7-43f9-907f-496c76b0e654" />
- | <img width="720" height="1612" alt="chat" src="https://github.com/user-attachments/assets/369865e2-94b0-4528-a7dd-61523e34fdae" />
- |
+| 🏠 Home | 📄 Upload Document | 💬 Chat |
 |:---:|:---:|:---:|
 | <img src="https://github.com/user-attachments/assets/29dd0af1-73a4-4966-b81b-390f60e6af02" width="250"/> | <img src="https://github.com/user-attachments/assets/d3b7210c-ed4c-4602-b41a-5464116d50ad" width="250"/> | <img src="https://github.com/user-attachments/assets/302b6535-a1bc-4be9-93a0-48def299f7a0" width="250"/> |
+
+## 🤖 AI Inference
+
+| 🤖 Gemma Test | 🔀 On-Device / API |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/db41790a-cb7a-416e-9d36-9b32787b56e0" width="250"/> | <img src="https://github.com/user-attachments/assets/047f9220-b0af-4e99-b75c-381c8ce73650" width="250"/> |
+
 
 ## 🤖 AI Inference
 
