@@ -136,8 +136,22 @@ cd HealthGuardAI
 
 ---
 
-## 📱 Screenshots
-add screen shots also  </p> <p align="center">   <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" />   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />   <img src="https://img.shields.io/badge/Jetpack%20Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white" />   <img src="https://img.shields.io/badge/Gemma-8E75B2?style=for-the-badge" />   <img src="https://img.shields.io/badge/RAG-FF6F00?style=for-the-badge" />   <img src="https://img.shields.io/badge/MediaPipe-0097A7?style=for-the-badge" />   <img src="https://img.shields.io/badge/Room-6DB33F?style=for-the-badge" /> </p>
+# 📱 Screenshots
+
+## 🏠 Main Application
+
+| <img width="720" height="1612" alt="Home screen" src="https://github.com/user-attachments/assets/61b674a9-371f-4654-8a0d-41cdefa43d49" />
+ |  <img width="720" height="1612" alt="upload document" src="https://github.com/user-attachments/assets/71a32110-8ac7-43f9-907f-496c76b0e654" />
+ | <img width="720" height="1612" alt="chat" src="https://github.com/user-attachments/assets/369865e2-94b0-4528-a7dd-61523e34fdae" />
+ |
+|:---:|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/29dd0af1-73a4-4966-b81b-390f60e6af02" width="250"/> | <img src="https://github.com/user-attachments/assets/d3b7210c-ed4c-4602-b41a-5464116d50ad" width="250"/> | <img src="https://github.com/user-attachments/assets/302b6535-a1bc-4be9-93a0-48def299f7a0" width="250"/> |
+
+## 🤖 AI Inference
+
+| 🤖 Gemma Test | 🔀 On-Device / API |
+|:---:|:---:|
+| <img src="https://github.com/user-attachments/assets/db41790a-cb7a-416e-9d36-9b32787b56e0" width="250"/> | <img src="https://github.com/user-attachments/assets/047f9220-b0af-4e99-b75c-381c8ce73650" width="250"/> |
 
 ## 🗺️ Roadmap
 
