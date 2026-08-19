@@ -139,5 +139,262 @@ HealthGuardAI follows an **MVVM + Repository architecture**.
                               ▼
                        ┌─────────────┐
                        │    Room     │
+
+
+
+Architecture Principles
+MVVM for separation of UI and application logic
+Repository pattern for data and AI operations
+Jetpack Compose for declarative UI
+Room for local persistence
+Coroutines for asynchronous operations
+Separation between document processing, retrieval, and inference
+🧠 RAG Pipeline
+
+The core of HealthGuardAI is its Retrieval-Augmented Generation pipeline.
+
+          📄 PDF Document
+                 │
+                 ▼
+        ┌─────────────────┐
+        │ Text Extraction │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │    Chunking     │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │   Embeddings    │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │ Semantic Search │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │ Relevant Chunks │
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │  Context + Query│
+        └────────┬────────┘
+                 │
+                 ▼
+        ┌─────────────────┐
+        │      LLM        │
+        └────────┬────────┘
+                 │
+                 ▼
+             💬 Answer
+1. Text Extraction
+
+The application extracts readable text from the uploaded PDF.
+
+2. Chunking
+
+Large documents are divided into smaller chunks so that relevant sections can be retrieved efficiently.
+
+3. Embeddings
+
+Text chunks are converted into numerical vector representations using a text embedding model.
+
+4. Retrieval
+
+When the user asks a question, the query is also converted into an embedding.
+
+The system compares the query representation with document chunk representations and retrieves the most relevant content.
+
+5. Context Construction
+
+The retrieved chunks are combined with the user's question to construct the context provided to the LLM.
+
+6. Generation
+
+The LLM generates the final response using the retrieved document context.
+
+🤖 On-Device LLM
+
+HealthGuardAI explores local Large Language Model inference using Gemma and MediaPipe.
+
+User Question
+      │
+      ▼
+Retrieved Context
+      │
+      ▼
+Prompt Construction
+      │
+      ▼
+┌──────────────────────┐
+│   Gemma LLM          │
+│   On Android Device  │
+└──────────┬───────────┘
+           │
+           ▼
+      AI Response
+
+Running inference locally can provide important advantages for applications handling sensitive information:
+
+🔒 Improved privacy
+📱 Local processing
+🌐 Reduced cloud dependency
+⚡ Potentially lower latency
+📴 Potential offline capability
+
+Actual performance depends on the Android device and model configuration.
+
+🛠 Tech Stack
+Android
+Kotlin
+Android SDK
+Jetpack Compose
+Material 3
+Navigation Compose
+Kotlin Coroutines
+Architecture
+MVVM
+Repository Pattern
+Clean separation of responsibilities
+AI / ML
+Retrieval-Augmented Generation (RAG)
+Text Embeddings
+Semantic Search
+Gemma
+MediaPipe LLM Inference
+Data
+Room Database
+Local document data
+Local application state
+Document Processing
+PDF text extraction
+Text chunking
+Embedding generation
+Context retrieval
+🚀 Getting Started
+Prerequisites
+
+Before running the project, make sure you have:
+
+Android Studio
+JDK compatible with the project
+Android SDK
+A supported Android device or emulator
+Sufficient device resources for on-device LLM inference
+Installation
+1. Clone the repository
+git clone https://github.com/YOUR_USERNAME/HealthGuardAI.git
+2. Open the project
+
+Open the cloned project in Android Studio.
+
+3. Sync Gradle
+
+Allow Android Studio to download and configure the required dependencies.
+
+4. Configure AI API
+
+If using API-based inference, add the required API configuration according to the project setup.
+
+Never commit API keys or other secrets to GitHub.
+
+5. Run the application
+
+Connect an Android device or start an emulator and run the application from Android Studio.
+
+🔐 Privacy Considerations
+
+HealthGuardAI is designed with privacy in mind.
+
+The project explores local-first AI processing, particularly for documents that may contain sensitive information.
+
+Privacy-focused design
+Documents can be processed locally
+On-device LLM inference reduces cloud dependency
+Local persistence through Room
+API-based inference is optional
+API keys should never be stored directly in source code
+
+Important: HealthGuardAI is an educational/technical project and is not a substitute for professional medical advice.
+
+💡 What I Learned
+
+Building HealthGuardAI helped me gain practical experience with:
+
+Android Development
+Building applications with Jetpack Compose
+MVVM architecture
+Repository pattern
+State management
+Navigation
+Local persistence with Room
+AI Engineering
+Understanding Retrieval-Augmented Generation
+Text chunking strategies
+Embeddings
+Semantic similarity search
+Context retrieval
+Prompt construction
+LLM integration
+On-Device AI
+Running LLM inference on Android
+Working with Gemma
+MediaPipe LLM Inference
+Understanding the limitations of mobile AI inference
+Designing applications around device constraints
+Privacy-Aware AI
+Comparing cloud and local inference
+Reducing unnecessary data transmission
+Designing AI systems for sensitive document processing
+🚀 Future Improvements
+
+Planned improvements include:
+
+ Better PDF parsing for complex documents
+ Improved chunking strategies
+ Vector database optimization
+ More advanced semantic retrieval
+ Retrieval ranking / reranking
+ Streaming LLM responses
+ Conversation history
+ Multiple document collections
+ Improved on-device model performance
+ Better offline support
+ Medical-document-specific retrieval evaluation
+ RAG accuracy and latency benchmarking
+📊 Project Goals
+
+HealthGuardAI was built as a practical exploration of the intersection between:
+
+Android Development + Generative AI + RAG + On-Device Machine Learning + Privacy
+
+The main goal was not simply to integrate an AI API, but to understand how an end-to-end AI-powered Android system can be designed and implemented.
+
+👩‍💻 Developer
+Aroma Ahmad
+
+BS Computer Science | Android Developer | AI/ML Enthusiast
+
+Interested in building privacy-conscious mobile applications and exploring the integration of AI/ML technologies into real-world software systems.
+
+Core Skills
+Kotlin
+Android Development
+Jetpack Compose
+MVVM
+Clean Architecture
+Room
+REST APIs
+RAG
+LLM Integration
+On-Device AI
+⭐ Support
+
+If you found HealthGuardAI interesting or useful, consider giving the repository a ⭐ Star!
                        │ Local Data  │
                        └─────────────┘
