@@ -137,10 +137,7 @@ cd HealthGuardAI
 ---
 
 ## 📱 Screenshots
-
-> _Coming soon_
-
----
+add screen shots also  </p> <p align="center">   <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white" />   <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" />   <img src="https://img.shields.io/badge/Jetpack%20Compose-4285F4?style=for-the-badge&logo=jetpackcompose&logoColor=white" />   <img src="https://img.shields.io/badge/Gemma-8E75B2?style=for-the-badge" />   <img src="https://img.shields.io/badge/RAG-FF6F00?style=for-the-badge" />   <img src="https://img.shields.io/badge/MediaPipe-0097A7?style=for-the-badge" />   <img src="https://img.shields.io/badge/Room-6DB33F?style=for-the-badge" /> </p>
 
 ## 🗺️ Roadmap
 
