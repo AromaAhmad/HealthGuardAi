@@ -151,12 +151,6 @@ cd HealthGuardAI
 | <img src="https://github.com/user-attachments/assets/db41790a-cb7a-416e-9d36-9b32787b56e0" width="250"/> | <img src="https://github.com/user-attachments/assets/047f9220-b0af-4e99-b75c-381c8ce73650" width="250"/> |
 
 
-## 🤖 AI Inference
-
-| 🤖 Gemma Test | 🔀 On-Device / API |
-|:---:|:---:|
-| <img src="https://github.com/user-attachments/assets/db41790a-cb7a-416e-9d36-9b32787b56e0" width="250"/> | <img src="https://github.com/user-attachments/assets/047f9220-b0af-4e99-b75c-381c8ce73650" width="250"/> |
-
 ## 🗺️ Roadmap
 
 - [x] On-device Gemma 3 1B inference via MediaPipe
