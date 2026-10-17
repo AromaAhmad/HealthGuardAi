@@ -7,8 +7,7 @@
 <p align="center">
   An Android application that combines Retrieval-Augmented Generation (RAG),
   semantic search, and on-device Large Language Model inference to generate
-  grounded responses from user-provided medical documents — no data ever
-  has to leave the device.
+  grounded responses from user-provided medical documents — on-device by default.
 </p>
 
 <p align="center">
@@ -18,7 +17,6 @@
   <img src="https://img.shields.io/badge/Gemma-8E75B2?style=for-the-badge" />
   <img src="https://img.shields.io/badge/RAG-FF6F00?style=for-the-badge" />
   <img src="https://img.shields.io/badge/MediaPipe-0097A7?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Room-6DB33F?style=for-the-badge" />
 </p>
 
 <p align="center">
@@ -33,7 +31,7 @@
 
 **HealthGuardAI** is a privacy-focused Android AI application that lets users upload medical documents (PDFs, reports, prescriptions) and ask natural-language questions about their content.
 
-Instead of sending an entire document to a cloud AI model, HealthGuardAI uses a **Retrieval-Augmented Generation (RAG)** pipeline to retrieve only the relevant chunks first, then feeds that context to an **on-device LLM** — keeping sensitive health data private by default, with an optional cloud fallback for heavier queries.
+Instead of sending an entire document to a cloud AI model, HealthGuardAI uses a **Retrieval-Augmented Generation (RAG)** pipeline to retrieve only the relevant chunks first, then feeds that context to an **on-device LLM**. The user can optionally switch to a cloud model (Gemini).
 
 ```text
 Document
@@ -48,22 +46,27 @@ Semantic Retrieval (Vector Similarity)
    ↓
 Relevant Context
    ↓
-LLM (On-Device Gemma 3 1B via MediaPipe / Gemini Cloud fallback)
+LLM (On-Device Gemma 3 1B via MediaPipe / Gemini Cloud option)
    ↓
 Grounded Answer
 ```
 
 ---
 
+## 🎬 Demo
+
+[Watch the demo video](https://drive.google.com/file/d/1_pZ8TebmiyeVRZ6I3ahDyRqiTskOyIPI/view?usp=drivesdk): PDF upload, chunking, and an on-device Gemma answer on a mid-range Android phone.
+
+---
+
 ## ✨ Features
 
-- 📄 **Document Ingestion** — Upload and parse medical PDFs/reports directly on-device
-- 🔍 **Semantic Search** — Retrieves only the most relevant chunks using vector similarity, not keyword matching
-- 🤖 **On-Device LLM Inference** — Runs Google's Gemma 3 1B locally via MediaPipe, no internet required
-- ☁️ **Cloud Fallback** — Optional Gemini Cloud API for more complex queries, user-selectable
-- 🔒 **Privacy by Design** — Documents and embeddings never leave the device unless the user opts into cloud mode
-- 💬 **Grounded Chat Interface** — Answers are grounded in the user's own documents, reducing hallucination
-- 💾 **Persistent Local Storage** — Chat history and document embeddings cached via Room Database
+- 📄 **Document Ingestion**: Upload a PDF; text is extracted and chunked on-device
+- 🔍 **Semantic Search**: Retrieves the most relevant chunks using vector similarity, not keyword matching
+- 🤖 **On-Device LLM Inference**: Runs Google's Gemma 3 1B locally via MediaPipe, no internet required
+- ☁️ **Cloud Option**: Gemini Cloud API, selectable by the user in the app
+- 🔒 **Privacy by Design**: Documents stay on the device. In cloud mode, only the question and the retrieved text chunks are sent to Gemini
+- 💬 **Grounded Answers**: Answers are generated from retrieved document context
 
 ---
 
@@ -82,14 +85,12 @@ RAG Engine (Chunking → Embedding → Retrieval)
       ↓
 LLM Layer
    ├── On-Device: Gemma 3 1B (MediaPipe LLM Inference API)
-   └── Cloud Fallback: Gemini Cloud API
-      ↓
-Room Database (Chat History, Document Embeddings)
+   └── Cloud: Gemini API
 ```
 
 **Why this architecture?**
 - **Unidirectional data flow** keeps UI state predictable and testable
-- **RAG before generation** ensures answers are grounded in retrieved context rather than the model's parametric memory, reducing hallucination on health-related queries
+- **RAG before generation** grounds answers in retrieved context rather than the model's own memory
 - **Pluggable LLM layer** lets the same ViewModel/Repository swap between on-device and cloud inference without UI changes
 
 ---
@@ -102,12 +103,9 @@ Room Database (Chat History, Document Embeddings)
 | UI | Jetpack Compose |
 | Architecture | MVVM |
 | On-Device LLM | Gemma 3 1B via MediaPipe LLM Inference API |
-| Cloud LLM (fallback) | Gemini Cloud API |
+| Cloud LLM | Gemini API |
 | Embeddings | Universal Sentence Encoder |
-| Local Storage | Room Database |
-| Networking | Retrofit |
 | Concurrency | Kotlin Coroutines, Dispatchers.IO |
-| Auth/Backend (optional) | Firebase |
 
 ---
 
@@ -128,7 +126,7 @@ cd HealthGuardAI
 1. Open the project in Android Studio
 2. Let Gradle sync complete
 3. Download the Gemma 3 1B `.task` model file and place it as instructed in `/app/src/main/assets` (see [MediaPipe LLM Inference docs](https://ai.google.dev/edge/mediapipe/solutions/genai/llm_inference))
-4. If using the Gemini Cloud fallback, add your API key to `local.properties`:
+4. If using the Gemini Cloud option, add your API key to `local.properties`:
    ```properties
    GEMINI_API_KEY=your_key_here
    ```
@@ -155,8 +153,10 @@ cd HealthGuardAI
 
 - [x] On-device Gemma 3 1B inference via MediaPipe
 - [x] Document chunking pipeline
-- [ ] Full RAG pipeline wired into `ChatViewModel` and `ChatScreen`
+- [x] RAG pipeline wired into `ChatViewModel` and `ChatScreen`
+- [ ] Retrieval quality evaluation on medical documents
 - [ ] Multi-document support with source citation in answers
+- [ ] Persistent chat history and cached embeddings
 - [ ] Voice input for queries
 - [ ] Export chat history as PDF
 
